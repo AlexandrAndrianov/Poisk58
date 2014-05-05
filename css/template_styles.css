@@ -1714,7 +1714,8 @@ visibility: visible;}
 text-align: center;}
 
 .panoram{
-border: 5px solid white;}
+border: 5px solid white;
+position: relative;}
 
 .name_mesto{
 background: white;
@@ -1779,6 +1780,36 @@ width: 100%;}
 position:absolute;
 right: 6px;
 top: 14px;}
+
+.filtr-panor{
+position: absolute;
+top: 8px;
+left: 8px;}
+
+.mesta-hd-vs p.description{
+text-align: center;
+line-height: 39px;}
+
+.col_network{
+padding: 5px;
+background: white;
+color: #3071a9;
+font-size: 12px;
+margin-left: 6px;
+padding: 0 5px;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;}
+
+.bookmark-btn{
+position:absolute;
+bottom:8px;
+left: 8px;}
+
+.bookmark-btn-right{
+position: absolute;
+bottom: 8px;
+right: 2px;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
