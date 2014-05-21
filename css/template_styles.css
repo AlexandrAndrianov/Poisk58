@@ -1471,7 +1471,8 @@ color: 	#808080;}
 .rwIb5{
 background: #fff;
 color: 	#808080;
-border: 1px solid rgba(192, 192, 192, 0.80);}
+border: 1px solid rgba(192, 192, 192, 0.80);
+padding: 0 28px;}
 
 .rwIb5 h3{
 color: 	#696969;
@@ -1485,7 +1486,25 @@ font-weight: bold;
 .button-top{
 display: block;
 position: fixed;
-top: 400px;}
+top: 400px;
+width: 40px;
+height: 40px;
+background: rgba(238, 238, 238, 0.69);
+font-size: 38px;
+text-align: center;
+cursor: pointer;
+border: 1px solid rgba(255, 255, 255, 0.40);
+line-height: 47px;
+font-weight: lighter;
+color: rgba(255, 255, 255, 0.83);
+visibility: visible;
+top: 100px;
+left: 10px;}
+
+.button-top:hover{
+background: rgba(238, 238, 238, 0.45);
+border: 1px solid rgba(255, 255, 255, 0.55);
+color: rgba(255, 255, 255, 0.95);}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
