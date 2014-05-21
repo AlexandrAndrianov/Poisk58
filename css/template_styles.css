@@ -1509,9 +1509,64 @@ color: rgba(255, 255, 255, 0.95);}
 .mesta{
 height: auto;
 width: auto;
-background: red;
+background: #fff;
+border: 1px solid black;
+color:#000;
+border: 6px solid white;
+position: relative;
+margin-bottom: 20px;}
+
+.picture-mesta{
+display: block;
+width: 100%;
+height: auto;
+border: 1px solid rgba(0, 0, 0, 0.6);}
+
+.mesta p.description{
+display: inline-block;
+overflow: hidden;
+text-overflow: ellipsis;
+width: 152px;
+height: 40px;
+margin-bottom: -4px;
+ margin-left: 6px;}
+
+.mesta i{
+border: 1px solid black;
+line-height: 12px;
+vertical-align: middle;
+font-size: 33px;
+padding: 9px;
+top: 4px;
+font-family: 'Times New Roman';
+position: absolute;
+background: #00A8EC;
+color: white;
+font-weight: bolder;}
+
+
+.linetext{
+position: relative;
+text-align: center;
+background: rgba(0, 0, 0, 0.33);
+margin: 0;
+top: -45px;
+color: #fff;
+font-size: 16px;
+height: 46px;
+line-height: 38px;
+margin: 0 0 -19px;}
+
+.logo-info{
+position: absolute;
+top: 0;
+padding: 3px;
+background: white;
 border: 1px solid black;}
 
+.descript-wrap{
+height: 40px;
+position: relative;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
