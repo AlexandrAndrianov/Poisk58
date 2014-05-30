@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Профиль места</title>
+
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+	
+    <!-- Bootstrap -->
+    <link href="css/template_styles.css" rel="stylesheet">
+	
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<script type="text/javascript">
+	   $(document).ready(function() {
+		  $("#my-menu").mmenu(
+		  {slidingSubmenus: false,
+			dragOpen: true});
+			
+			$("#my-rtmenu").mmenu(
+		  {slidingSubmenus: false,
+		    position: 'right',
+			classes: "mm-white",
+			dragOpen: true});
+		 });
+	</script>
+	
+  </head>
+  <body class="white">
+  <div >
+	  <div id="my-header" class="mm-fixed-top">
+			<a class="menu" href="#my-menu"></a>
+				<div class='navigat'>
+					<a class="logo"></a><span class="caption">POISK58</span><div class="path btn-danger">
+							Профиль места
+						</div>
+				</div>		
+			<a class="menu nav-right" href="#my-rtmenu"></a>
+		  </div>
+	  
+		<nav id="my-menu">
+			<ul class="List">
+				<li class="avtoriz">
+					<i class="vk"></i>
+					<a href="/">Войти с помощью Вконтакте</a></li>
+			   <li class="Selected"><a href="/">Home</a></li>  
+			   <li><a href="/about/">About us</a></li>
+			   <li>
+					<a href="/about/">Submenu</a>
+					 <ul>
+						<li><a href="/about/history/">History</a></li>
+						<li><a href="/about/team/">The team</a></li>
+						<li><a href="/about/address/">Our address</a></li>
+					 </ul>
+			   </li>
+			   <li><a href="/contact/">Contact</a></li>
+			   <li class="Label"></li> 
+			   <li><a href="/contact/">Aber</a></li>
+			   <li><a href="/contact/">Zolder</a></li>
+			   <li><a href="/contact/">Soldaten</a></li>
+			   <li><a href="/contact/">Rubem</a></li>
+			   <li><a href="/contact/">Kuren</a></li>
+			   <li class="Label"></li> 
+			</ul>
+		</nav>	
+		
+		<nav id="my-rtmenu">
+			<ul class="List">
+			   <li class="Selected"><a href="/">Home</a></li>
+			   <li class="Label">Home</li>   
+			   <li><a href="/about/">About us</a></li>
+			   <li>
+					<a href="/about/">Submenu</a>
+					 <ul>
+						<li><a href="/about/history/">History</a></li>
+						<li><a href="/about/team/">The team</a></li>
+						<li><a href="/about/address/">Our address</a></li>
+					 </ul>
+			   </li>
+			   <li><a href="/contact/">Contact</a></li>
+			</ul>
+		</nav>	
+		
+		
+			<div class="container margin-topcnt">
+			
+			
+				<div class="row">
+				
+					<div class="col-md-3">
+						<div class="mesta-wrap mesta-hd-vs">
+							<div class="mesta">
+								<div class="logo-info">
+									<img src="images/img_1_3.png"alt="info">
+								</div>
+								
+								<img src="images/Games.png" alt="image" class="picture-mesta">
+									<p class="linetext">
+										Название статьи
+									</p>
+									<div class="descript-wrap">
+										<p class="description">
+											<strong><nobr>ул. Гагарина 16</nobr></strong> 
+											</br>
+											<span><nobr>В любимые места</nobr><span>
+										</p>
+										<i class="glyph-btn glyphicon glyphicon-plus"></i>
+										<span class="tooltip-mesta"><nobr>в любимые места</nobr></span>
+									</div>	
+							</div>
+						</div>	
+					</div>
+					
+					<div class="col-md-9">
+						<div class="panoram-wrap panoram-hd-vs">
+							<div class="panoram">
+								<img src="images/G512x150.png" alt="image" class="picture-mesta">
+							</div>
+						</div>
+						
+						<div class="name_mesto">
+							<h4>Название места</h4>
+						</div>
+					</div>
+					
+				</div>
+				
+				
+				<div class="row">
+					
+				</div>
+				
+			
+			</div><!--container-->
+		
+		<div id="btnUp" class="button-top"></div>
+		
+		
+	
+		
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/buttonUp.js"></script>
+	</div>
+  </body>
+</html>

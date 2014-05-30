@@ -1407,7 +1407,7 @@ background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAYAAACYT
 margin: 5px 12px 3px 10px;}
 
 .margin-topcnt{
-margin-top: 68px;}
+padding-top: 68px;}
 
 .padding{
 padding:1px;}
@@ -1604,7 +1604,7 @@ width: auto;
 background: #fff;
 border: 1px solid black;
 color:#000;
-border: 6px solid white;
+border: 5px solid white;
 position: relative;
 margin-bottom: 20px;
 overflow: hidden;}
@@ -1713,10 +1713,42 @@ visibility: visible;}
 .txt-center{
 text-align: center;}
 
+.panoram{
+border: 5px solid white;}
+
+.name_mesto{
+background: white;
+color: #000;
+padding: 3px 5px 3px 20px;
+margin-top: 19px;
+border: 1px solid rgba(0, 0, 0, 0.37);}
+
+body.white{
+background: #fff;}
+
+body.white .margin-topcnt{
+background: #ccc;}
+
+.mesta-wrap{
+border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;}
+
+.mesta-wrap .mesta{
+margin-bottom: 0;}
+
+.panoram-wrap{
+border: 1px solid rgba(0, 0, 0, 0.3);}
+
 .soother{/*Для расчета height учитывать padding или margin класса .ol-Ib6 li:before*/
  display: block; /*Проще посмотретть занимаемую высоту элемента в Firebug*/
 height: 31px;
 margin: 0;}
+
+.mesta-hd-vs{
+display: block;}
+
+.panoram-hd-vs{
+display:block;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
@@ -1739,8 +1771,10 @@ text-align: center;}
 
 .rwIb6 .ol-center li{
 text-align: left;}
-}
 
+.mesta-hd-vs{
+display: none;}
+}
 
 @media (max-width: 746px) and (min-width: 600px){
 .mesta p.description{
@@ -1778,10 +1812,18 @@ margin-right: 16%;}
 @media (max-width: 335px) {
 .caption{
 display: none;}
+
 .path{
 display: none;}
+
 .col-xss-6{
 width: 80%;
 margin-left: 10%;
 margin-right: 10%;}
+
+.mesta-hd-vs{
+display: block;}
+
+.panoram-hd-vs{
+display:none;}
 }
