@@ -1486,15 +1486,32 @@ font-weight: bold;
 position: fixed;
 top: -10px;}
 
+.mesta{
+height: auto;
+width: auto;
+background: red;
+border: 1px solid black;}
+
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
 padding-top: 19px;}
 }
 
+
 @media (max-width: 599px) {
 .btnIB{
 display: block;
-width: 100%;}
+width: 100%;
+}
+.col-xss-6{
+width: 50%;}
+}
+
+@media (max-width: 465px){
+.col-xss-6{
+width: 68%;
+margin-left: 16%;
+margin-right: 16%;}
 }
 
 @media (max-width: 335px) {
@@ -1502,4 +1519,8 @@ width: 100%;}
 display: none;}
 .path{
 display: none;}
+.col-xss-6{
+width: 80%;
+margin-left: 10%;
+margin-right: 10%;}
 }
