@@ -1483,9 +1483,8 @@ font-weight: bold;
 }
 
 .button-top{
-display: block;
 position: fixed;
-top: 400px;}
+top: -10px;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
