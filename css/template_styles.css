@@ -1340,7 +1340,7 @@ width: 100%;
 text-align: center;
 height: 42px;
 line-height: 42px;
-z-index: 1000;
+z-index: 2000;
 box-shadow:  0 0 37px rgba(0, 0, 0, 0.81); }
 
 a.menu{
