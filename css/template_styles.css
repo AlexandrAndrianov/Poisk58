@@ -1426,6 +1426,59 @@ padding: 5px 60px;
 margin-right: 10px;
 margin-bottom:5px;}
 
+ol + div a.btnIB{
+margin-bottom: 25px;}
+
+
+.btn-ol{
+padding: 0 15px;}
+
+.ol-Ib6{
+display: block;
+font-size: 16px;
+list-style-type: none;
+margin-left: 5px;
+padding: 0;}
+
+.ol-Ib6 li:before{
+display: inline-block;
+margin-bottom: 8px;
+margin-right: 15px;
+padding: 0 8px;
+position: relative;
+top: 2px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;}
+
+.ol-Ib6.primary li:before{
+background: #428bca;
+color: #fff;}
+
+.ol-Ib6.danger li:before{
+background: #d9534f;
+ content:"1";
+ color: #d9534f;}
+ 
+ .no1:before{
+ content:"1";} 
+ .no2:before{
+ content:"2";}
+ .no3:before{
+ content:"3";}
+ .no4:before{
+ content:"4";}
+ .no5:before{
+ content:"5";}
+ .no6:before{
+ content:"6";}
+  .no7:before{
+ content:"7";}
+  .no8:before{
+ content:"8";}
+  .no9:before{
+ content:"9";}
+ 
 .picture-wrap{
 height: 249px;
 padding-top: 9px;
@@ -1487,6 +1540,25 @@ text-align: center;}
 color: 	#696969;
 font-weight: bold;
 }
+
+.rwIb6{
+background: #eee;
+color: 	#808080;
+border: 1px solid rgba(192, 192, 192, 0.80);
+padding: 0 28px;}
+
+.rwIb6 h3{
+color: 	#696969;
+text-align: center;}
+
+.rwIb6 h4{
+color: 	#696969;
+text-weight: bold;
+text-size: 16px;
+margin-bottom: 16px;}
+
+.rwIb6 .ol-center{
+text-align: left;}
 
 .button-top{
 position: fixed;
@@ -1624,13 +1696,39 @@ overflow: hidden;
 transition: all 0.1s linear;}
 
 .glyph-btn:hover + .tooltip-mesta{
-
 visibility: visible;}
+
+.txt-center{
+text-align: center;}
+
+.soother{/*Для расчета height учитывать padding или margin класса .ol-Ib6 li:before*/
+ display: block; /*Проще посмотретть занимаемую высоту элемента в Firebug*/
+height: 31px;
+margin: 0;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
 padding-top: 19px;}
 }
+
+@media (max-width: 991px){
+.soother{
+height: 0;}
+
+.rwIb6 h4{
+text-align: center;}
+
+.ol-Ib6{
+display: inline-block;
+padding: 0;}
+
+.rwIb6 .ol-center{
+text-align: center;}
+
+.rwIb6 .ol-center li{
+text-align: left;}
+}
+
 
 @media (max-width: 746px) and (min-width: 600px){
 .mesta p.description{
@@ -1653,6 +1751,7 @@ width: 77%;}
 display: block;
 width: 100%;
 }
+
 .col-xss-6{
 width: 50%;}
 }
