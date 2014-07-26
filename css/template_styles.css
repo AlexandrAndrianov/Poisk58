@@ -1472,12 +1472,24 @@ background: #d9534f;
  content:"5";}
  .no6:before{
  content:"6";}
-  .no7:before{
+ .no7:before{
  content:"7";}
-  .no8:before{
+ .no8:before{
  content:"8";}
-  .no9:before{
+ .no9:before{
  content:"9";}
+ .no10:before{
+ content:"10";}
+ .no11:before{
+ content:"11";}
+ .no12:before{
+ content:"12";}
+ .no13:before{
+ content:"13";}
+ .no14:before{
+ content:"14";}
+ .no15:before{
+ content:"15";}
  
 .picture-wrap{
 height: 249px;
