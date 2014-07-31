@@ -1750,6 +1750,13 @@ display: block;}
 .panoram-hd-vs{
 display:block;}
 
+.vk_like-wrap{
+background: white;
+padding: 11px 22px;
+margin-top: 20px;
+color: #808080;
+border: 1px solid rgba(0, 0, 0, 0.3);}
+
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
 padding-top: 19px;}

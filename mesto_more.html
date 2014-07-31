@@ -35,6 +35,13 @@
 		 });
 	</script>
 	
+	<!--Кнопка "Мне нравится ВК"-->
+	<script type="text/javascript" src="http://vk.com/js/api/openapi.js?115"></script>
+
+	<script type="text/javascript">
+	  VK.init({apiId: 4269851, onlyWidgets: true});
+	</script>
+	
   </head>
   <body class="white">
   <div >
@@ -124,7 +131,7 @@
 					<div class="col-md-9">
 						<div class="panoram-wrap panoram-hd-vs">
 							<div class="panoram">
-								<img src="images/G512x150.png" alt="image" class="picture-mesta">
+								<img src="http://rotarynewengland.org/wp-content/uploads/2013/07/Emmanuel-Jal-512x150.jpg" alt="image" class="picture-mesta">
 							</div>
 						</div>
 						
@@ -137,7 +144,23 @@
 				
 				
 				<div class="row">
-					
+						<div class="col-md-3">
+							<div class="vote-btn">
+								<a class="btn btn-primary btn-block" href="javascript:void(0);">7.4<sup>/45<sup></a>
+								<a class="btn btn-default btn-block" href="javascript:void(0);">Параметр оценки</a>
+								<a class="btn btn-default btn-block" href="javascript:void(0);">Параметр оценки</a>
+								<a class="btn btn-primary btn-block" href="javascript:void(0);">Оценить место</a>
+							</div>
+						
+						
+							<div class="vk_like-wrap">
+								<p>рекомендовать Вконтакте</p>
+								<div id="vk_like"></div>
+								<script type="text/javascript">
+								VK.Widgets.Like("vk_like", {type: "button", height: 24});
+								</script>
+							</div>
+						</div>
 				</div>
 				
 			
