@@ -166,7 +166,7 @@ html.mm-blocking #mm-blocker {
       padding: 10px 10px 10px 20px;
       margin: 0;
 	  outline: none;}
-  .mm-list > li:not(.mm-subtitle):not(.avtoriz):not(.mm-label):not(.mm-noresults)::after {
+  .mm-list > li:not(.mm-subtitle):not(.avtoriz):not(.noavtoriz):not(.mm-label):not(.mm-noresults)::after {
     content: '';
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -175,12 +175,13 @@ html.mm-blocking #mm-blocker {
     position: absolute;
     bottom: 0;
     left: 0; }
+
   .mm-list > li:not(.mm-subtitle):not(.mm-label):not(.mm-noresults):after {
     width: auto;
     margin-left: 20px;
     position: relative;
     left: auto; }
-  .mm-list > li:not(.avtoriz):hover > a{
+  .mm-list > li:not(.avtoriz):not(.noavtoriz):hover > a{
     color: rgba(255, 255, 255, 1);}
   .mm-list a.mm-subopen {
     width: 40px;
@@ -292,8 +293,8 @@ html.mm-opened .mm-page {
     border-color: rgba(255, 255, 255, 0.3); }
   .mm-menu .mm-list > li > a.mm-subopen:before {
     border-color: rgba(0, 0, 0, 0.15); }
-  .mm-menu .mm-list > li.mm-selected > a:not(.mm-subopen),
-  .mm-menu .mm-list > li.mm-selected > span {
+  .mm-menu .mm-list > li.mm-selected:not(.noavtoriz):not(.avtoriz) > a:not(.mm-subopen),
+  .mm-menu .mm-list > li.mm-selected:not(.noavtoriz):not(.avtoriz) > span {
     background: rgba(29, 115, 115, 0.65); }
   .mm-menu .mm-list > li.mm-label {
     background: rgba(255, 255, 255, 0.05); }
@@ -1388,6 +1389,15 @@ line-height: 28px;
 margin-left: 10px;
 margin-top: 7px;
 padding: 0 8px;}
+
+li.noavtoriz{
+background: white;
+color: #000;}
+
+li.noavtoriz a{
+text-decoration: underline;
+padding-left:0;
+padding-right:0;}
 
 li.avtoriz{
 border-bottom: 2px solid red;
