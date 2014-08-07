@@ -36,7 +36,7 @@
 	</script>
 	
 	<!--Кнопка "Мне нравится ВК"-->
-	<script type="text/javascript" src="http://vk.com/js/api/openapi.js?115"></script>
+	<script type="text/javascript" src="js/vk_like.js"></script>
 
 	<script type="text/javascript">
 	  VK.init({apiId: 4269851, onlyWidgets: true});
@@ -104,17 +104,31 @@
 				
 				<div class="row mrg-bot15 vs991 hd335">
 				
-					<div class="col-sm-3 col-xs-3 col-sm-offset-9 col-xs-offset-9">
+					<div class="col-sm-3 col-xs-3">
 						<p class="favor_more-sm">
-							<span><nobr>в любимые места</nobr></span>
 							<i class="glyph-more-sm glyphicon glyphicon-plus"></i>
+							<span><nobr>в любимые места</nobr></span>
 						</p>
+					</div>
+					
+					<div class='col-sm-3 col-xs-3 col-sm-ofset-6 col-xs-offset-6'>
+						<div class="vk_like991-wrap">
+							<div id="vk_like991"></div>
+							<script type="text/javascript">
+								VK.Widgets.Like991("vk_like991", {type: "button", height: 24});
+							</script>
+						</div>
 					</div>
 					
 					<div class="col-sm-12 col-xs-12">
 						<div class="name_mesto-sm">
 							<h4>Название места</h4>
-							<a class="btn btn-primary" href="javascript:void(0);">7.4<sup>/45<sup></a>
+							<div class="btn-vote-wrap991">
+								<a class="btn btn-primary" href="javascript:void(0);">7.4<sup>/45<sup></a>
+								<a class="btn btn-primary" href="javascript:void(0);">
+									<i class="glyphicon glyphicon-thumbs-up"></i>
+								</a>
+							</div>
 						</div>
 					</div>
 					
@@ -314,10 +328,26 @@
 				</div>
 				
 				
+				<div class="row vs335">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Оценить место</button>
+					</div>
+					<div class="col-sm-12">
+						<div class="vk_like-wrap335">
+							<div id="vk_like_vs335"></div>
+								<script type="text/javascript">
+								VK.Widgets.Like335("vk_like_vs335", {type: "button", height: 24});
+								</script>	
+						</div>
+					</div>	
+				</div>
+				
+				
 				<div class="row vs991">
-					<div class="col-sm-4 col-xs-4 col-xss-6">
+				
+					<div class="col-sm-12">
 						<div class="btn-group mrg-bot15">
-							  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Действие <span class="caret"></span></button>
+							  <button type="button" class="btn btn-danger btn-block dropdown-toggle" data-toggle="dropdown">Действие <span class="caret"></span></button>
 							  <ul class="dropdown-menu" role="menu">
 								<li><a href="#">Действие</a></li>
 								<li><a href="#">Другое действие</a></li>
@@ -328,16 +358,6 @@
 							</div>
 					</div>
 					
-					<div class="col-sm-4 col-xs-4 col-xss-6">
-						<button type="button" class="mrg-bot15 btn btn-primary dropdown-toggle" data-toggle="dropdown">Оценить место</button>
-					</div>
-					
-					<div class="col-sm-4 col-xs-4 col-xss-6 mrg-bot15">
-						<div id="vk_like991"></div>
-						<script type="text/javascript">
-							VK.Widgets.Like("vk_like991", {type: "button", height: 24});
-						</script>	
-					</div>
 				</div>
 				
 				
