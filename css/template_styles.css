@@ -1647,7 +1647,6 @@ background: #fff;
 color: rgba(0, 0, 0, 1);
 font-weight: bolder;
 right: 0px;
-cursor: pointer;
 z-index: 1050;}
 
 .mesta i:hover{
@@ -1860,11 +1859,10 @@ font-family: Times New Roman;
 font-size: 33px;
 font-weight: bold;
 display: inline-block;
-color: rgba(0, 0, 0, 1);
-cursor: pointer;}
+color: rgba(0, 0, 0, 1);}
 
 .glyph-more-sm:hover{
-color: rgba(255, 255, 255, 1);
+color: rgba(0, 0, 0, 1);
 background: #00A8EC;}
 
 .favor_more-sm{
@@ -1906,6 +1904,12 @@ position: relative;}
 
 .List{
 display: none;}
+
+.map-wrap{
+border: 1px solid rgba(0, 0, 0, 0.3);}
+
+.map-border{
+border: 5px solid white;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
@@ -1949,6 +1953,7 @@ display: none;}
 
 .mrg-top15vs991{
 margin-top: 15px;}
+
 }
 
 .vs569{
@@ -2005,9 +2010,9 @@ display: none;}
 display: none;}
 
 .col-xss-6{
-width: 80%;
-margin-left: 10%;
-margin-right: 10%;}
+width: 100%;
+margin-left: 0;
+margin-right: 0;}
 
 .mesta-hd-vs{
 display: block;}
@@ -2020,4 +2025,14 @@ display: none;}
 
 .vs335{
 display: block;}
+
+.container{
+padding-left: 3px;
+padding-right: 3px;}
+
+.map-wrap{
+border: 0 solid rgba(0, 0, 0, 1);}
+
+.map-border{
+border: 0 solid white;}
 }

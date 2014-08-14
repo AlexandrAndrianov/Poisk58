@@ -1183,7 +1183,7 @@ if (!VK.Widgets) {
     if (options.type == 'button' || options.type == 'vertical' || options.type == 'mini') delete options.width;
     var
       type = (options.type == 'full' || options.type == 'button' || options.type == 'vertical' || options.type == 'mini') ? options.type : 'full',
-      width = type == 'full' ? Math.max(200, options.width || 350) : (type == 'button' ? 146 : (type == 'mini' ? 100 : 41)),
+      width = type == 'full' ? Math.max(200, options.width || 350) : (type == 'button' ? 158 : (type == 'mini' ? 100 : 41)),
       btnHeight = parseInt(options.height, 10) || 22,
       height = type == 'vertical' ? (2 * btnHeight + 7) : (type == 'full' ? btnHeight + 1 : btnHeight),
       params = {
@@ -1300,7 +1300,7 @@ if (!VK.Widgets) {
     if (options.type == 'button' || options.type == 'vertical' || options.type == 'mini') delete options.width;
     var
       type = (options.type == 'full' || options.type == 'button' || options.type == 'vertical' || options.type == 'mini') ? options.type : 'full',
-      width = type == 'full' ? Math.max(200, options.width || 350) : (type == 'button' ? 146 : (type == 'mini' ? 100 : 41)),
+      width = type == 'full' ? Math.max(200, options.width || 350) : (type == 'button' ? 158 : (type == 'mini' ? 100 : 41)),
       btnHeight = parseInt(options.height, 10) || 22,
       height = type == 'vertical' ? (2 * btnHeight + 7) : (type == 'full' ? btnHeight + 1 : btnHeight),
       params = {
