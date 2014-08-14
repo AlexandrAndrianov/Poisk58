@@ -1911,6 +1911,9 @@ border: 1px solid rgba(0, 0, 0, 0.3);}
 .map-border{
 border: 5px solid white;}
 
+.panel-title > a{
+text-decoration: underline;}
+
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
 padding-top: 19px;}
