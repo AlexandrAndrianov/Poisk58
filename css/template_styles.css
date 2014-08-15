@@ -1647,7 +1647,7 @@ background: #fff;
 color: rgba(0, 0, 0, 1);
 font-weight: bolder;
 right: 0px;
-z-index: 1050;}
+z-index: 500;}
 
 .mesta i:hover{
 background: #00A8EC;
@@ -1913,6 +1913,15 @@ border: 5px solid white;}
 
 .panel-title > a{
 text-decoration: underline;}
+
+#afisha .panel-body{
+color: #333;}
+
+#map-mesto{
+display: none;}
+
+#inter{
+display: none;}
 
 @media (max-width: 1199px) and (min-width: 800px) {
 .picture-wrap{
