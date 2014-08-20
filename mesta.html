@@ -104,7 +104,10 @@
 					<div class="mesta-wrap">
 						<div class="mesta">
 							<div class="logo-info">
-								<img src="images/img_1_3.png"alt="info">
+								<a class="infob-Img" href="<?=$arResult["ITEMS"][$num]["DETAIL_PAGE_URL"]?>" style="background: url(<?=$arResult["ITEMS"][$num]["PREVIEW_PICTURE"]["SRC"]?>) 0 0 / cover;">
+									<?/*=$arResult["ITEMS"][$num]["PREVIEW_PICTURE"]["SRC"]*/?>
+									<img src="/images/dummy.gif" title="<?=$arResult["ITEMS"][$num]["NAME"]?>" alt="<?=$arResult["ITEMS"][$num]["NAME"]?>" class="picture-mesta">
+								</a>
 							</div>
 							
 							<img src="images/Games.png" alt="image" class="picture-mesta">
