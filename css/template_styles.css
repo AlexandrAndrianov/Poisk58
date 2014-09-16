@@ -2091,12 +2091,10 @@ transform: rotate(-45deg);
 
 .menu-list-title{
 font-size: 18px;
-padding-left: 25px;
 }
 
 .menu-list-inside{
 font-size: 14px;
-padding-left: 42px;
 }
 
 .mnlstel-ico{
@@ -2226,6 +2224,23 @@ margin-right: 0;}
 
 .box-img-link{
 height: 80px;}
+
+	.rg-image-nav a{
+		top: -43px;
+		width: 33px;
+		height: 32px;
+		right: 36px;
+	}
+	
+	.rg-image-nav a.rg-image-nav-next{
+		background-position: -10px 50%;
+		right: -13px;
+	}
+	
+	.cntfoto{
+		top: -40px;
+	}
+
 }
 
 @media (max-width: 465px){

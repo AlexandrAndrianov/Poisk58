@@ -1,6 +1,6 @@
 .rg-image-wrapper{
 	position:relative;
-	padding:0 10px;
+	padding:0;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
@@ -20,11 +20,11 @@
 }
 .rg-image-nav a{
 	position:absolute;
-	top:-41px;
-	right: 43px;
+	top:-38px;
+	right: 40px;
 	background:#000 url(images/nav.png) no-repeat 10px 50% / 31px;
-	width:32px;
-	height:30px;
+	width:28px;
+	height:25px;
 	text-indent:-9000px;
 	cursor:pointer;
 	opacity:0.3;
@@ -38,7 +38,7 @@
 outline: none;}
 
 .rg-image-nav a.rg-image-nav-next{
-	right:2px;
+	right:10px;
 	left:auto;
 	background-position:-12px 50%;
 	-moz-border-radius: 0px 10px 10px 0px;
@@ -182,6 +182,7 @@ position: absolute;
 right: 83px;
 top: -38px;
 color: #aaa;
+background: white;
 }
 
 #countfoto{
