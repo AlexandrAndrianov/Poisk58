@@ -2110,6 +2110,7 @@ padding: 8px 0 15px;
 
 .mnlst-table{
 width: 100%;
+cursor: pointer;
 }
 
 .mnlst-cntr{
@@ -2229,12 +2230,12 @@ height: 80px;}
 		top: -43px;
 		width: 33px;
 		height: 32px;
-		right: 36px;
+		right: 50px;
 	}
 	
 	.rg-image-nav a.rg-image-nav-next{
 		background-position: -10px 50%;
-		right: -13px;
+		right: 3px;
 	}
 	
 	.cntfoto{

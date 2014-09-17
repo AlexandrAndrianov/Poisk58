@@ -14,7 +14,8 @@
 				for($i = 1; $i <= $cntItem; $i++):?>
 					<?foreach($arResult[$i] as $title => $list):?>
 						<a class="menu-list menu-list-title" href="javascript:void(0);" 
-							data-toggle="collapse" data-target="#<?=translit($title);?>" onclick="toglDwUp(this);">
+							data-toggle="collapse" 
+							data-target="#<?=translit($title);?>" onclick="toglDwUp(this);">
 							<?=$title?>
 							<i></i>
 						</a>
@@ -30,8 +31,9 @@
 										</style>
 									</noscript>
 									
-									<script id="<?=translit($title).translit($ar);?>_img-wrapper-tmpl" type="text/x-jquery-tmpl">
-												<div class="rg-image-wrapper">
+									<script id="<?=translit($title).translit($ar);?>_img-wrapper-tmpl"
+										type="text/x-jquery-tmpl">
+												<div class="rg-image-wrapper nopadding">
 													{{if itemsCount > 1}}                                    
 														<div class="rg-image-nav">
 															<span id="<?=translit($title).translit($ar);?>_cntfoto" 
@@ -40,21 +42,23 @@
 															<a id='next' href="#" class="rg-image-nav-next">Next Image</a>
 														</div>
 													{{/if}}
-													<div class="rg-image"></div>
+													<div id="<?=translit($title).translit($ar);?>_rg_image"
+														class="rg-image"></div>
 													<div class="rg-loading"></div>
 													<div class="rg-caption-wrapper">
 														<div class="rg-caption text_white" style="display:none;">
-															<p></p>
+															<p class="rg-descr"></p>
 														</div>
 													</div>
 												</div>	
 									</script>	
 							
-								<a class="menu-list menu-list-inside" href="javascript:void(0);" 
+								<a id="<?=translit($title).translit($ar);?>_title" 
+									class="menu-list menu-list-inside" href="javascript:void(0);" 
 									data-toggle="collapse" 
 									data-target="#<?=translit($title).translit($ar);?>" onclick="toglDwUp(this);">
 									<?=$ar?>
-									<i></i>
+									<i id="<?=translit($title).translit($ar);?>_marker"></i>
 								</a>
 							
 								<div id="<?=translit($title).translit($ar);?>" class="collapse ">
@@ -90,7 +94,7 @@
 										<script type="text/javascript" src="<?=$componentPath?>/ResponsiveImageGallery/js/jquery.tmpl.min.js"></script>
 										<script type="text/javascript" src="<?=$componentPath?>/ResponsiveImageGallery/js/jquery.elastislide.js"></script>
 										<script>
-											galeryLoad('<?=translit($title).translit($ar);?>');
+											galeryLoad('<?=translit($title).translit($ar);?>', true);
 										</script>
 									</div><!-- rg-gallery -->
 								</div>
