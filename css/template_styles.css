@@ -1863,8 +1863,8 @@ margin-bottom: 0;}
 .panoram-wrap{
 border: 1px solid rgba(0, 0, 0, 0.3);}
 
-.soother{/*Р”Р»СЏ СЂР°СЃС‡РµС‚Р° height СѓС‡РёС‚С‹РІР°С‚СЊ padding РёР»Рё margin РєР»Р°СЃСЃР° .ol-Ib6 li:before*/
- display: block; /*РџСЂРѕС‰Рµ РїРѕСЃРјРѕС‚СЂРµС‚С‚СЊ Р·Р°РЅРёРјР°РµРјСѓСЋ РІС‹СЃРѕС‚Сѓ СЌР»РµРјРµРЅС‚Р° РІ Firebug*/
+.soother{/*Для расчета height учитывать padding или margin класса .ol-Ib6 li:before*/
+ display: block; /*Проще посмотретть занимаемую высоту элемента в Firebug*/
 height: 31px;
 margin: 0;}
 
@@ -2030,6 +2030,12 @@ padding:0px 16px 2px 16px;}
 display: none;
 background: #fff;
 border: 1px solid rgba(0, 0, 0, 0.37);}
+
+#network{
+background: #fff;
+display:none;
+color: #333;
+}
 
 #linkfoto{
 margin-bottom: 5px;}
