@@ -32,7 +32,8 @@
 						$db_info = CIBlockElement::GetProperty($arParams['IBLOCK_ID'], $arNetw['ID'],
 												Array(), Array('CODE' => 'PLACE_ADRES'));
 						$arinfoRez = $db_info->Fetch();
-						$arREzNetw[] = Array($arNetw['NAME'], $arinfoRez['VALUE']);
+						$arREzNetw[] = Array($arNetw['NAME'], $arinfoRez['VALUE'], 
+																	$arNetw['LIST_PAGE_URL'].$arNetw['DETAIL_PAGE_URL']);
 					}
 					$cntNetw = count($arREzNetw);
 				}
@@ -197,10 +198,12 @@
 						<li class="<?=($_GET['key'] == 'inter' ? 'bookmark-active':'')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="inter">Интерьер</a></li>
 						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="map">Карта</a></li>
 						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="menu">Меню</a></li>
-						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="network">
-									Сеть <?=$cntNetw?>
-								</a>
-						</li>
+						<?if($flagnet):?>
+							<li><a  onclick="displCont(this)" href="javascript:void(0)" data="network">
+										Сеть <?=$cntNetw?>
+									</a>
+							</li>
+						<?endif?>	
 					  </ul>
 				</div>
 			</div>
@@ -367,41 +370,53 @@
 							<div id="network">
 								<?
 									foreach($arREzNetw as $key):?>
-										<p>
-											<?=$key[0]?> <?=$key[1]?>
-										</p>
+											<p class="netwP">
+												<a href="<?=$key[2]?>">
+													<span><?=$key[0]?>;</span> <?=$key[1]?>
+												</a>
+											</p>	
 									
 								<?endforeach?>
 							</div>
-	
+
 				</div>	
 		</div>
 				<div class="row mrg-bot15 hd991">
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
 						<div class="btn-group">
-						  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Действие <span class="caret"></span></button>
+						  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Лента новостей <span class="caret"></span></button>
 						  <ul class="dropdown-menu" role="menu">
-							<li><a href="#">Действие</a></li>
-							<li><a href="#">Другое действие</a></li>
-							<li><a href="#">Что-то иное</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Отдельная ссылка</a></li>
+								<li><a data-action="sobutiya" onclick="showAction(this);"
+											href="javascript: void(0);">События</a></li>
+								<li><a data-action="akcii" onclick="showAction(this);"
+											href="javascript: void(0);">Акции</a></li>
+								<li><a data-action="nowinki" onclick="showAction(this);" 
+											href="javascript: void(0);">Новинки</a></li>
 						  </ul>
 						</div>
 					</div>	
 					
-					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Действие</button>
+					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6 open">
+						<button type="button" class="btn btn-default dropdown-toggle" 
+							data-action="sobutiya" onclick="showAction(this);" data-toggle="dropdown">
+							События
+						</button>
 						 
 					</div>	
 					
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Действие</button>
+						<button type="button" class="btn btn-default dropdown-toggle"
+							data-action="akcii" onclick="showAction(this);" data-toggle="dropdown">
+							Акции
+						</button>
 						 
 					</div>	
 					
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Действие</button>
+						<button type="button" class="btn btn-default dropdown-toggle" 
+							data-action="nowinki" onclick="showAction(this);" data-toggle="dropdown">
+							Новинки
+						</button>
 						 
 					</div>	
 
@@ -429,19 +444,179 @@
 						
 					<div class="col-sm-12">
 						<div class="btn-group mrg-bot15">
-							  <button type="button" class="btn btn-danger btn-block dropdown-toggle" data-toggle="dropdown">Действие <span class="caret"></span></button>
+							  <button type="button" class="btn btn-danger btn-block dropdown-toggle" 
+									data-toggle="dropdown">Лента новостей <span class="caret"></span></button>
 							  <ul class="dropdown-menu" role="menu">
-								<li><a href="#">Действие</a></li>
-								<li><a href="#">Другое действие</a></li>
-								<li><a href="#">Что-то иное</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Отдельная ссылка</a></li>
+									<li><a data-action="sobutiya" onclick="showAction(this);"
+											href="javascript: void(0);">События</a></li>
+									<li><a data-action="akcii" onclick="showAction(this);"
+												href="javascript: void(0);">Акции</a></li>
+									<li><a data-action="nowinki" onclick="showAction(this);" 
+												href="javascript: void(0);">Новинки</a></li>
 							  </ul>
 							</div>
 					</div>
 					
 				</div>
 				
+				<div id="akcii">
+					<?$APPLICATION->IncludeComponent("andatr:news.list","akcii",Array(
+									"DISPLAY_DATE" => "Y",
+									"DISPLAY_NAME" => "Y",
+									"DISPLAY_PICTURE" => "Y",
+									"DISPLAY_PREVIEW_TEXT" => "Y",
+									"AJAX_MODE" => "Y",
+									"IBLOCK_TYPE" => "akcii",
+									"IBLOCK_ID" => "6",
+									"PARENT_ELEMENT_ID" => $arResult["ID"],
+									"NEWS_COUNT" => "20",
+									"SORT_BY1" => "ACTIVE_FROM",
+									"SORT_ORDER1" => "DESC",
+									"SORT_BY2" => "SORT",
+									"SORT_ORDER2" => "ASC",
+									"FILTER_NAME" => "",
+									"FIELD_CODE" => Array("ID"),
+									"PROPERTY_CODE" => Array("DESCRIPTION"),
+									"CHECK_DATES" => "Y",
+									"DETAIL_URL" => "",
+									"PREVIEW_TRUNCATE_LEN" => "",
+									"ACTIVE_DATE_FORMAT" => "d.m.Y",
+									"SET_TITLE" => "Y",
+									"SET_BROWSER_TITLE" => "Y",
+									"SET_META_KEYWORDS" => "Y",
+									"SET_META_DESCRIPTION" => "Y",
+									"SET_STATUS_404" => "Y",
+									"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+									"ADD_SECTIONS_CHAIN" => "Y",
+									"HIDE_LINK_WHEN_NO_DETAIL" => "Y",
+									"PARENT_SECTION" => "",
+									"PARENT_SECTION_CODE" => "",
+									"INCLUDE_SUBSECTIONS" => "Y",
+									"CACHE_TYPE" => "A",
+									"CACHE_TIME" => "3600",
+									"CACHE_FILTER" => "Y",
+									"CACHE_GROUPS" => "Y",
+									"DISPLAY_TOP_PAGER" => "Y",
+									"DISPLAY_BOTTOM_PAGER" => "Y",
+									"PAGER_TITLE" => "Новости",
+									"PAGER_SHOW_ALWAYS" => "Y",
+									"PAGER_TEMPLATE" => "",
+									"PAGER_DESC_NUMBERING" => "Y",
+									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+									"PAGER_SHOW_ALL" => "Y",
+									"AJAX_OPTION_JUMP" => "N",
+									"AJAX_OPTION_STYLE" => "Y",
+									"AJAX_OPTION_HISTORY" => "N",
+									"AJAX_OPTION_ADDITIONAL" => ""
+							)
+					);?>
+				</div>
+				
+				<div id="sobutiya">
+					<?$APPLICATION->IncludeComponent("andatr:news.list","sobutiya",Array(
+									"DISPLAY_DATE" => "Y",
+									"DISPLAY_NAME" => "Y",
+									"DISPLAY_PICTURE" => "Y",
+									"DISPLAY_PREVIEW_TEXT" => "Y",
+									"AJAX_MODE" => "Y",
+									"IBLOCK_TYPE" => "akcii",
+									"IBLOCK_ID" => "6",
+									"PARENT_ELEMENT_ID" => $arResult["ID"],
+									"NEWS_COUNT" => "20",
+									"SORT_BY1" => "ACTIVE_FROM",
+									"SORT_ORDER1" => "DESC",
+									"SORT_BY2" => "SORT",
+									"SORT_ORDER2" => "ASC",
+									"FILTER_NAME" => "",
+									"FIELD_CODE" => Array("ID"),
+									"PROPERTY_CODE" => Array("DESCRIPTION"),
+									"CHECK_DATES" => "Y",
+									"DETAIL_URL" => "",
+									"PREVIEW_TRUNCATE_LEN" => "",
+									"ACTIVE_DATE_FORMAT" => "d.m.Y",
+									"SET_TITLE" => "Y",
+									"SET_BROWSER_TITLE" => "Y",
+									"SET_META_KEYWORDS" => "Y",
+									"SET_META_DESCRIPTION" => "Y",
+									"SET_STATUS_404" => "Y",
+									"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+									"ADD_SECTIONS_CHAIN" => "Y",
+									"HIDE_LINK_WHEN_NO_DETAIL" => "Y",
+									"PARENT_SECTION" => "",
+									"PARENT_SECTION_CODE" => "",
+									"INCLUDE_SUBSECTIONS" => "Y",
+									"CACHE_TYPE" => "A",
+									"CACHE_TIME" => "3600",
+									"CACHE_FILTER" => "Y",
+									"CACHE_GROUPS" => "Y",
+									"DISPLAY_TOP_PAGER" => "Y",
+									"DISPLAY_BOTTOM_PAGER" => "Y",
+									"PAGER_TITLE" => "Новости",
+									"PAGER_SHOW_ALWAYS" => "Y",
+									"PAGER_TEMPLATE" => "",
+									"PAGER_DESC_NUMBERING" => "Y",
+									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+									"PAGER_SHOW_ALL" => "Y",
+									"AJAX_OPTION_JUMP" => "N",
+									"AJAX_OPTION_STYLE" => "Y",
+									"AJAX_OPTION_HISTORY" => "N",
+									"AJAX_OPTION_ADDITIONAL" => ""
+							)
+					);?>
+				</div>
+				
+				<div id="novinki">
+					<?$APPLICATION->IncludeComponent("andatr:news.list","novinki",Array(
+									"DISPLAY_DATE" => "Y",
+									"DISPLAY_NAME" => "Y",
+									"DISPLAY_PICTURE" => "Y",
+									"DISPLAY_PREVIEW_TEXT" => "Y",
+									"AJAX_MODE" => "Y",
+									"IBLOCK_TYPE" => "akcii",
+									"IBLOCK_ID" => "6",
+									"PARENT_ELEMENT_ID" => $arResult["ID"],
+									"NEWS_COUNT" => "20",
+									"SORT_BY1" => "ACTIVE_FROM",
+									"SORT_ORDER1" => "DESC",
+									"SORT_BY2" => "SORT",
+									"SORT_ORDER2" => "ASC",
+									"FILTER_NAME" => "",
+									"FIELD_CODE" => Array("ID"),
+									"PROPERTY_CODE" => Array("DESCRIPTION"),
+									"CHECK_DATES" => "Y",
+									"DETAIL_URL" => "",
+									"PREVIEW_TRUNCATE_LEN" => "",
+									"ACTIVE_DATE_FORMAT" => "d.m.Y",
+									"SET_TITLE" => "Y",
+									"SET_BROWSER_TITLE" => "Y",
+									"SET_META_KEYWORDS" => "Y",
+									"SET_META_DESCRIPTION" => "Y",
+									"SET_STATUS_404" => "Y",
+									"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+									"ADD_SECTIONS_CHAIN" => "Y",
+									"HIDE_LINK_WHEN_NO_DETAIL" => "Y",
+									"PARENT_SECTION" => "",
+									"PARENT_SECTION_CODE" => "",
+									"INCLUDE_SUBSECTIONS" => "Y",
+									"CACHE_TYPE" => "A",
+									"CACHE_TIME" => "3600",
+									"CACHE_FILTER" => "Y",
+									"CACHE_GROUPS" => "Y",
+									"DISPLAY_TOP_PAGER" => "Y",
+									"DISPLAY_BOTTOM_PAGER" => "Y",
+									"PAGER_TITLE" => "Новости",
+									"PAGER_SHOW_ALWAYS" => "Y",
+									"PAGER_TEMPLATE" => "",
+									"PAGER_DESC_NUMBERING" => "Y",
+									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+									"PAGER_SHOW_ALL" => "Y",
+									"AJAX_OPTION_JUMP" => "N",
+									"AJAX_OPTION_STYLE" => "Y",
+									"AJAX_OPTION_HISTORY" => "N",
+									"AJAX_OPTION_ADDITIONAL" => ""
+							)
+					);?>
+				</div>
 				
 			<?if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
 			{
@@ -508,7 +683,7 @@
 									$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle').html('Описание <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('Описание <span class="caret"></span>');
 								}
 								
 							}
@@ -552,7 +727,7 @@
 									$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle').html('Интерьер <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('Интерьер <span class="caret"></span>');
 								}
 							}
 							break;
@@ -594,7 +769,7 @@
 									$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle').html('Карта <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('Карта <span class="caret"></span>');
 								}
 								
 							}
@@ -638,7 +813,7 @@
 									$($('a[data=descr]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle').html('Меню <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('Меню <span class="caret"></span>');
 								}
 								
 							}
@@ -656,10 +831,10 @@
 										$('#descr').css('display', 'none');
 										$('#inter').css('display', 'none');
 										
-										/*$('div.bookmark-btn a[data=menu]').attr('class', 'btn btn-primary hd569');
+										$('div.bookmark-btn a[data=menu]').attr('class', 'btn btn-default hd569');
 										$('div.bookmark-btn a[data=map]').attr('class', 'btn btn-default hd569');
 										$('div.bookmark-btn a[data=descr]').attr('class', 'btn btn-default hd569');
-										$('div.bookmark-btn a[data=inter]').attr('class', 'btn btn-default hd569');*/
+										$('div.bookmark-btn a[data=inter]').attr('class', 'btn btn-default hd569');
 									}
 									else
 									{
@@ -674,14 +849,14 @@
 										$($('a[data=map]').parent()[1]).removeClass('bookmark-active');
 										$($('a[data=inter]').parent()[1]).removeClass('bookmark-active');
 										$($('a[data=descr]').parent()[1]).removeClass('bookmark-active');
-										
+									
 										$($('a[data=network]').parent()[2]).addClass('bookmark-active');
 										$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 										$($('a[data=map]').parent()[2]).removeClass('bookmark-active');
 										$($('a[data=inter]').parent()[2]).removeClass('bookmark-active');
 										$($('a[data=descr]').parent()[2]).removeClass('bookmark-active');
 										
-										$('.dropdown-toggle').html('Сеть <?=$cntNetw?> <span class="caret"></span>');
+										$('.dropdown-toggle.335').html('Сеть <?=$cntNetw?> <span class="caret"></span>');
 									}
 									
 								}
@@ -689,6 +864,43 @@
 							
 						default:
 							console.log('атрибут не найден');
+							break;
+					}
+				}
+				
+				function showAction(el){
+					var parent = $(el).parent()[0].nodeName;
+
+					switch($(el).data('action')){
+						case 'sobutiya':
+							$('#akcii').css('display', 'none');
+							$('#novinki').css('display', 'none');
+							$('#sobutiya').css('display', 'block');
+							if(parent === 'LI'){
+								$('.bookmark-action-active').removeClass('bookmark-action-active');
+								$($(el).parent()[0]).addClass('bookmark-action-active');
+							}
+							break;
+						case 'akcii':
+							$('#novinki').css('display', 'none');
+							$('#sobutiya').css('display', 'none');
+							$('#akcii').css('display', 'block');
+							if(parent === 'LI'){
+								$('.bookmark-action-active').removeClass('bookmark-action-active');
+								$($(el).parent()[0]).addClass('bookmark-action-active');
+							}
+							break;
+						case 'nowinki':
+							$('#akcii').css('display', 'none');
+							$('#sobutiya').css('display', 'none');
+							$('#novinki').css('display', 'block');
+							if(parent === 'LI'){
+								$('.bookmark-action-active').removeClass('bookmark-action-active');
+								$($(el).parent()[0]).addClass('bookmark-action-active');
+							}
+							break;
+						default:
+							console.log('для ключа data вариантов нет');
 							break;
 					}
 				}

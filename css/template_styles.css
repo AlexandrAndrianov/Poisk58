@@ -2032,9 +2032,7 @@ background: #fff;
 border: 1px solid rgba(0, 0, 0, 0.37);}
 
 #network{
-background: #fff;
 display:none;
-color: #333;
 }
 
 #linkfoto{
@@ -2042,6 +2040,14 @@ margin-bottom: 5px;}
 
 #txtfoto{
 margin-bottom: 5px;}
+
+#akcii{
+display: none;
+}
+
+#novinki{
+display: none;
+}
 
 .alert{
 margin-top: 10px;}
@@ -2056,6 +2062,10 @@ padding: 0;
 
 .bookmark-active{
 background: #428bca;
+}
+
+.bookmark-action-active{
+background: #d43f3a;
 }
 
 .menu-list{
@@ -2138,6 +2148,26 @@ padding: 12px 5px 12px 5px;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 	margin: 0;
 	padding-bottom: 10px !important;
+}
+
+.netwP{
+background: #fff;
+border: 1px solid rgba(0, 0, 0, 0.37);
+padding: 10px 0 10px 22px;
+}
+
+.netwP a{
+color:#333;
+text-decoration: none;
+}
+
+.netwP a:hover{
+color:#2a6496;
+}
+
+.netwP a span{
+font-size: 16px;
+font-weight: bold;
 }
 
 /*---------------------------------------------------------------------------------------------*/
