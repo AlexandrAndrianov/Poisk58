@@ -1,0 +1,264 @@
+commit ae95f5990e20e521a8be41fc1c0235798d35dd21
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Sep 23 17:21:26 2014 +0400
+
+    Добавил события, акции, новинки на страницу детального просмотра
+
+commit fa7ad7c8885d16731b8a7a47c4ee38ce2650c068
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Fri Sep 19 17:44:48 2014 +0400
+
+    Сделал функционал Сеть
+
+commit ce862c471129ed4d244a7b18a7892bae60acc5c1
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Sep 17 11:11:51 2014 +0400
+
+    Исправил паддинг у фотогаллерей, в адаптивке; Сделалл курсор у элемента списка в меню профильместа
+
+commit 031310f28a6e407cd82577ee8b9a77185811106f
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Sep 16 11:05:17 2014 +0400
+
+    Увеличил кнопки навигации для фотогаллереи в меню, убрал паддинг у заголовков и подзаголовков списка list
+
+commit 4a5315ef67369a7725f28dfea64605a786b45576
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Mon Sep 15 17:42:56 2014 +0400
+
+    Увеличил кнопки в мобильной версии для фотогалереи, Добавил шаблон фотогалереея лайт
+
+commit be59081cfa2c419cb0f7f90670e8008b26b166fe
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Mon Sep 15 12:41:13 2014 +0400
+
+    Сделал индивидуальный ID  для каждой галлереи в компоненте list
+
+commit 2356046befccd0bebb8aba2b2c0419425fd74b2a
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Sep 11 11:06:38 2014 +0400
+
+    Дописал в README.txt component list  инструкцию, если нет дополнительной информации
+
+commit 8a8d9ffe70f5f568f33ccae73c9b0b97c71bc68d
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Sep 10 15:44:39 2014 +0400
+
+    Написал Readme.txt
+
+commit e95f08f70fd4679204fdf665af95c52da8a9e0e4
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Sep 10 13:02:39 2014 +0400
+
+    Создал компанент list для списков меню
+
+commit 9e984ad911fa5d1f2204d1a2ef1000d282128f16
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Fri Aug 22 11:11:50 2014 +0400
+
+    Интерьер фотогаллерея превью одного размера
+
+commit 7e1ad481172bd2c782b478b6eec66602a1cf9e5b
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Aug 20 13:29:08 2014 +0400
+
+    Сделал пустышку, что бы места не схлопывались, пока грузится изображение
+
+commit e0ea81e154ca2d20b38b2d42889a7a326c0e21a2
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Fri Aug 15 16:21:34 2014 +0400
+
+    Сделал кнопки закладки
+
+commit 61856b1bd31bd33b048010a15b25fc3e013bc26d
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Aug 14 16:33:48 2014 +0400
+
+    Сделал описание места для детальной информации о месте
+
+commit c8a3bf0f4bf1e1e31516f00ebdc47570092c33fa
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Aug 14 13:17:54 2014 +0400
+
+    Сделал карту для подробного описания места
+
+commit 058c9f5b04614388c3b22f63aaafc101ff4bf8d6
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Aug 12 14:32:26 2014 +0400
+
+    Обводку для мест
+
+commit 417bcde2166120ab1b857f072b1e6efe5b309283
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Aug 12 14:27:08 2014 +0400
+
+    Добавил обводку для мест
+
+commit ce7eac115555db4f3639ab10f07d7501a219535a
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Aug 12 13:24:12 2014 +0400
+
+    повтор
+
+commit 4c0374a867620d42093b0e58a3c4fced55cc114b
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Aug 12 12:24:12 2014 +0400
+
+    Добавил стиль display:none для меню, чтобы не отображалось при медленном интернете
+
+commit e9438963f0d6be82d065ca3753dbe3b52d663e97
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Fri Aug 8 15:45:59 2014 +0400
+
+    Изменил стили для меню
+
+commit 16ee23c9481b26851c526adf0cdebfacc9502be2
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Aug 7 15:24:45 2014 +0400
+
+    Сделал стили для неавторизированного меню
+
+commit 72275b78001e48728a6a7aa90f3948969ac2e4dd
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Aug 7 14:50:28 2014 +0400
+
+    Исправил скрипт jquery.mmenu.min.all теперь открывается при нажатии на ссылку
+
+commit 2a5d817de73ee710273ccc97a856b65272bd4893
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Aug 7 12:57:10 2014 +0400
+
+    Переделал адаптивку для mesto_more, Переместил кнопки Оценить место и Мне нравится
+
+commit 3590f73b0c8bfb2d70e3fbbb21c1491624f4ebd4
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Aug 6 16:34:14 2014 +0400
+
+    Исправления класса linetext
+
+commit a78856d2c56297f2df8262c396116e4fc239e09a
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Aug 5 17:54:58 2014 +0400
+
+    Сделал адаптивку mesto_more  тут
+
+commit 5289795595f6b9d79ed29d0ff38cd5ba9819abac
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Mon May 5 12:09:17 2014 +0400
+
+    Сделал кнопки фильтры на панорома в mesto_more
+
+commit 43ac7f8705136d75a7ef11c9d1baef68a93fd812
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Sun May 4 17:49:26 2014 +0400
+
+    Сделал mesta_more разрешение desktop
+
+commit 060ddfb0a50e143f562e87e7114fb51583d76590
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Jul 31 16:14:35 2014 +0400
+
+    Добавил кнопки оценки места, Добавил кнопку Мне нравится для контакта
+
+commit 052201cd9f0bf73a13d56752052eb1b2a4b6d9cf
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Fri May 30 15:40:59 2014 +0400
+
+    Создал файл Readme.txt в котором указал необходимый размер изображения для паноромы профиля мест, создал файл mesta_more.html, сделал адаптивку для превью мест и панорамы
+
+commit 0db0611206c8a6095558f4cd64188f064936ec2e
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Mon Jul 28 10:51:12 2014 +0400
+
+    Добавил файлы включаемых областей index_IB1.php и т.д.
+
+commit 2126266784dcb78c49b15b9048c6ee783a1455ec
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Sat Jul 26 17:28:35 2014 +0500
+
+    Закончил Инструкцию Добавлени ИБ, добавил в css классы для нумеровонного списка, теперь номеров может быть 15
+
+commit 89ae5cbcaa6324f448fbefce09561e4e8f6e5223
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Fri Jul 25 18:03:50 2014 +0500
+
+    Инструкция Добавлиние ИБ, создал разделы Размещение ИБ, Создание файла
+
+commit 3bfc85aa35b8b2d26d738be4bab5dbcbb9ac7e16
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Thu Jul 24 17:51:48 2014 +0400
+
+    Инструкция Добавление информационных страниц
+
+commit cf3d0f60b441af5dfe07e87a385f1d9c9222dea0
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Jul 23 17:31:22 2014 +0400
+
+    Сверстал блок ИБ6, добавил polz_soglash.html
+
+commit 369e5916439933afa472734741c812da973e4e13
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed Jul 23 11:34:20 2014 +0400
+
+    Добавил файл index.html сверстал ИБ3
+
+commit cfbdac33acf6debf417913de3fd6e59c132521ca
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Jul 22 17:50:26 2014 +0400
+
+    Выставил z-index 2000 для my-header, что бы абсолютные элементы были ниже
+
+commit 12aef2bcf1c3fe0c5b2866df12a8001e42882ee3
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Jul 22 17:24:17 2014 +0400
+
+    Сделал подсказки, убрал пробельные символы между инлайн блоками в my-header, добавил кнопки колво аноносов и показать еще, адаптивный вариант mesta.html готов
+
+commit fd229266c484a68c0df112c7e7313e30be13e934
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed May 21 16:41:25 2014 +0400
+
+    сверстал превьюшки места
+
+commit 90aafc5418944981a5caef35d2719318af5da7ef
+Merge: 11f2ecc 71cf858
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed May 21 11:54:08 2014 +0400
+
+    Исправил скрипт buttonUp.js исправил конфликт слияния
+
+commit 71cf8589fae53693d7dde85f7cd91fa2c8c1e3a9
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Sun Jul 20 19:42:28 2014 +0500
+
+    Добавил mesta.html и добавил css адптивной верстки для mesta.html
+
+commit 30ca9d987ba2e276e34547f4f37e9189cc60b0a2
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Sun Jul 20 14:34:07 2014 +0500
+
+    Сделал скрипт buttonUP.js для кнопки "Вверх" добавил скрипт в putevoditel.html
+
+commit 11f2eccc724e89bf87a0c5ace5173daa8a6696ad
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Wed May 21 10:35:24 2014 +0400
+
+    Стили для кнопки " Вверх\
+
+commit 4d74a6c548e321cc275f4973bae79bf9bfa475ef
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Sun May 18 10:09:49 2014 +0400
+
+    Переименовал index.html в putevoditel.html
+
+commit f1fad14bd9bf71d72d00cdbeb33ea96729cf72b0
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Sat May 17 17:48:02 2014 +0400
+
+    Сверстал блоки ИБ1 ИБ2 ИБ3 ИБ5
+
+commit 3ced0582a83df6f6ab1f9048b7905b8b767333e5
+Author: AlexandrAndrianov <andatrGitHub@yandex.ru>
+Date:   Tue Jul 15 15:22:59 2014 +0400
+
+    Начальная фиксация
