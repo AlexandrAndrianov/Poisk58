@@ -134,6 +134,10 @@ html.mm-blocking #mm-blocker {
 #my-rtmenu > .mm-list {
   padding: 20px 0 40px 0; }
 
+#my-rtmenu{
+background: rgba(255, 255, 255, 1);
+}
+	
 .mm-panel > .mm-list {
   margin-left: -20px;
   margin-right: -20px; }
@@ -1786,12 +1790,12 @@ position: relative;}
 
 .logo-pagecount{
 background: none repeat scroll 0 0 white;
-border: 1px solid black;
+border: 1px solid rgba(0, 0, 0, 0.37);
 color: #000;
 margin-bottom: 5px;}
 
 .pagcont-logo{
-border-right: 1px solid #000;
+border-right: 1px solid rgba(0, 0, 0, 0.37);
 display: block;
 float: left;}
 
@@ -1802,13 +1806,41 @@ padding: 5px;}
 .pagecount{
 font-weight: bold;}
 
+.pagecount-nowinki{
+font-weight: bold;}
+
+.pagecount-akcii{
+font-weight: bold;}
+
 .show-more{
 background: #fff;
 text-align: center;
 color: #000;
 padding: 5px;
 font-weight: bold;
-cursor: pointer;}
+cursor: pointer;
+border: 1px solid rgba(0, 0, 0, 0.37);
+}
+
+.show-more-nowinki{
+background: #fff;
+text-align: center;
+color: #000;
+padding: 5px;
+font-weight: bold;
+cursor: pointer;
+border: 1px solid rgba(0, 0, 0, 0.37);
+}
+
+.show-more-akcii{
+background: #fff;
+text-align: center;
+color: #000;
+padding: 5px;
+font-weight: bold;
+cursor: pointer;
+border: 1px solid rgba(0, 0, 0, 0.37);
+}
 
 .tooltip-mesta{
 background: none repeat scroll 0 0 #fff;
@@ -1898,11 +1930,22 @@ color: #808080;
 border: 1px solid rgba(0, 0, 0, 0.3);
 margin-top: 10px;}
 
+.mrg-bot20{
+margin-bottom: 20px;}
+
 .mrg-bot15{
 margin-bottom: 15px;}
 
 .mrg-bot10{
 margin-bottom: 10px;}
+
+.mrg-top10{
+margin-top: 10px;
+}
+
+.mrg-top15{
+margin-top: 15px;
+}
 
 .dropdown-toggle{
 width: 100%;}
@@ -2168,6 +2211,10 @@ color:#2a6496;
 .netwP a span{
 font-size: 16px;
 font-weight: bold;
+}
+
+.wrap-right-menu{
+padding: 20px !important;
 }
 
 /*---------------------------------------------------------------------------------------------*/
