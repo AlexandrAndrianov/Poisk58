@@ -1895,8 +1895,8 @@ margin-bottom: 0;}
 .panoram-wrap{
 border: 1px solid rgba(0, 0, 0, 0.3);}
 
-.soother{/*Для расчета height учитывать padding или margin класса .ol-Ib6 li:before*/
- display: block; /*Проще посмотретть занимаемую высоту элемента в Firebug*/
+.soother{/*Р”Р»СЏ СЂР°СЃС‡РµС‚Р° height СѓС‡РёС‚С‹РІР°С‚СЊ padding РёР»Рё margin РєР»Р°СЃСЃР° .ol-Ib6 li:before*/
+ display: block; /*РџСЂРѕС‰Рµ РїРѕСЃРјРѕС‚СЂРµС‚С‚СЊ Р·Р°РЅРёРјР°РµРјСѓСЋ РІС‹СЃРѕС‚Сѓ СЌР»РµРјРµРЅС‚Р° РІ Firebug*/
 height: 31px;
 margin: 0;}
 
@@ -1943,8 +1943,16 @@ margin-bottom: 10px;}
 margin-top: 10px;
 }
 
+.mrg-top5{
+margin-top:5px;
+}
+
 .mrg-top15{
 margin-top: 15px;
+}
+
+.mrg-top20{
+margin-top: 20px;
 }
 
 .dropdown-toggle{

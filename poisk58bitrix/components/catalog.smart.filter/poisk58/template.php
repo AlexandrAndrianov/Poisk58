@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?/*Ôîðìèðóåì ïóòü äëÿ ôèëüòðà */
+<?/*Ð¤Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÐ¼ Ð¿ÑƒÑ‚ÑŒ Ð´Ð»Ñ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ð° */
 	if(!function_exists('formAction')){
 		function formAction(&$path){
 			define('SIMB', '/');
@@ -23,7 +23,7 @@
 	formAction($arResult["FORM_ACTION"]);
 ?>
 
-<?/*Ïîêàçûâàòü ëè êíîïêó ñîõðàíèòü*/
+<?/*ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÑƒ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ*/
 	if(!function_exists('showBut')){
 		function showBut($ar){
 			foreach($ar as $arItem){
@@ -49,7 +49,7 @@
 	<?endforeach;?>
 
 	<?if(showBut($arResult["ITEMS"])):?>
-		<div class="mrg-bot20">
+		<div class="">
 			<input class="btn btn-primary btn-block" type="submit" id="del_filter" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" />
 		</div>
 	<?endif?>	
@@ -99,69 +99,72 @@
 				
 		
 			<?elseif(!empty($arItem["VALUES"])):;?>
-			
-			<div>
+				<?if(strcasecmp($arItem["NAME"], 'Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð° Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹')):?>
+					<div>
+				<?endif?>	
 				<?if(!strpos($arItem["CODE"], "FILTER")):?>
 				<!--<div>
 						<span><?/*=$arItem["NAME"]*/?></span>
 					</div>-->
 				<?endif?>
-
-				<div class="mrg-bot20">
-
+				<?if(strcasecmp($arItem["NAME"], 'Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð° Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹')):?>
+					<div class="mrg-top15">
+				<?endif?>
 					<?$cnt = 0;?>
 						<?foreach($arItem["VALUES"] as $val => $ar):?>
                                             
 							<?if($cnt == 3):?>
-								<button  type="button" class="btn btn-default" data-toggle="collapse" data-target="#<?=$ar["CONTROL_NAME"]?>">
+								<button  type="button" class="btn btn-default" data-toggle="collapse" data-target="#<?=$ar["CONTROL_NAME"]?>_bayan">
 									...
 									</button>
 							</div>
-								<div  id="<?=$ar["CONTROL_NAME"]?>" class="collapse">
-									<div style="padding-left: 1px;">
+							<div  id="<?=$ar["CONTROL_NAME"]?>_bayan" class="collapse">
+								<div style="padding-left: 1px;">
+
 							<?endif?>
 									<?if(!empty($ar["VALUE"])):?>
-										<?if(!strcasecmp($arItem["NAME"], 'Ñèñòåìà îïëàòû')):?>
+										<?if(!strcasecmp($arItem["NAME"], 'Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð° Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹')):?>
 											<?$cls = 'btn-block mrg-bot10';
 												$act = $ar["CHECKED"]?'active':'';
 												$chek = $ar["CHECKED"]?'checked':'';
-												$str .= '<input '.$chek.' class="btn" type="checkbox" style="display:none;" name="'.$ar["CONTROL_NAME"].'" value="'.$ar["HTML_VALUE"].'" id="'.$ar["CONTROL_ID"].'"/> <label class="btn btn-default indent-bottom5 indent-right1'.$act.'btn-block mrg-bot10 '.$act.'"	style="display:inline-block;" for="'.$ar["CONTROL_ID"].'" onclick="chek(this);">'.$ar["VALUE"].'</label>';
+												$str .= '<input '.$chek.' type="checkbox" style="display:none;" name="'.$ar["CONTROL_NAME"].'" value="'.$ar["HTML_VALUE"].'" id="'.$ar["CONTROL_ID"].'"/> <label class="btn btn-default '.$act.' btn-block mrg-top5 '.$act.'"	style="display:inline-block;" for="'.$ar["CONTROL_ID"].'" onclick="chek(event, this);">'.$ar["VALUE"].'</label>';
 											?>	
 										<?else:?>
-											<input 
-												class="btn"
-												type="checkbox" style="display:none;"
-												name="<?echo $ar["CONTROL_NAME"]?>"
-												value="<?echo $ar["HTML_VALUE"]?>"
-												id="<?echo $ar["CONTROL_ID"]?>"
-												<?=$ar["CHECKED"]?'checked':''?>/>
-												<label class="btn btn-default indent-bottom5 indent-right1 
-																			<?=$ar["CHECKED"]?'active':''?>
-																	<?if(!strcasecmp($arItem["NAME"], 'Ñèñòåìà îïëàòû')):?>
-																			btn-block mrg-bot10
-																	<?endif?> 
-																"	
-																style="display:inline-block;" for="<?echo $ar["CONTROL_ID"]?>"
-																onclick='chek(this);'>
-													<?echo $ar["VALUE"];?>
-												</label>
+
+												<input
+													type="checkbox" style="display:none"
+													name="<?echo $ar["CONTROL_NAME"]?>"
+													value="<?echo $ar["HTML_VALUE"]?>"
+													id="<?echo $ar["CONTROL_ID"]?>"
+													<?=$ar["CHECKED"]?'checked':''?>/>
+													<label class="btn btn-default mrg-top5
+																				<?=$ar["CHECKED"]?'active':''?>"	
+																	style="display:inline-block;" for="<?echo $ar["CONTROL_ID"]?>"
+																	onclick='chek(event, this);'>
+														<?echo $ar["VALUE"];?>
+													</label>	
 										<?endif?>		
 										<?$cnt++;?>
 									<?endif?>		
+									
 						<?endforeach;?>
-						
-						<?if($cnt == 3):?>
-									</div>
-							 </div> 
-						<?endif?>
-				</div>	
+						<?if(strcasecmp($arItem["NAME"], 'Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð° Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹')):?>
+							</div><!--class="collapse"-->
+						<?endif?>	
+					<?if(strcasecmp($arItem["NAME"], 'Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð° Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹')):?>	
+					 </div><!--style="padding-left: 1px;"-->
+					<?endif?> 
+				<?if(strcasecmp($arItem["NAME"], 'Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð° Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹')):?>		
+					</div>
 					<i class="clearfix"></i>
-			</div>	
+				<?endif?>	
 			<?endif;?>
 		<?endforeach;?>
-		
-		<?=$str?>
+			<div class="mrg-top20">
+				<?=$str?>
+			</div>	
 		</div>
+	</div>
 
 	<!--	<div class="modef" id="modef" <?/*if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';*/?>>
 			<?/*echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));*/?>
@@ -169,7 +172,7 @@
 			<!--<span class="ecke"></span>
 		</div>-->
 	</div>
-	<div class="mrg-top10">
+	<div class="mrg-top20">
 			<input class="btn btn-primary btn-block" style="margin-right: 38px" type="submit" id="set_filter" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" />
 	</div>	
 </form>
@@ -177,12 +180,12 @@
 	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>');
 </script>
 <script>
-	function chek(el){
-		var chek = $(el).prev()[0].id;
-		if($("#"+chek).prop("checked")){
-			$("#"+chek).prop("checked", false);
+	function chek(e, el){
+		var ch = $(el).prev()[0].id;
+		if($("#"+ch).prop("checked")){
+			$("#"+ch).prop("checked", false);
 		}else{
-			$("#"+chek).prop("checked", true);
+			$("#"+ch).prop("checked", true);
 		}
 	}
 </script>
