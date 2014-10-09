@@ -60,7 +60,7 @@
 			<!--<ul class="List">
 				<li class="avtoriz">
 					<i class="vk"></i>
-					<a href="/">����� � ������� ���������</a></li>
+					<a href="/">Войти с помощью Вконтакте</a></li>
 			   <li class="Selected"><a href="/">Home</a></li>  
 			   <li><a href="/about/">About us</a></li>
 			   <li>
@@ -99,13 +99,56 @@
 		<?
 			$dir = $APPLICATION->GetCurDir();
 			preg_match('|\/catalog\/([^\/]+)\/([^\/]+)?\/?|', $dir, $math);
+			$lenRazd = count($math);
 		?>
 		<nav id="my-rtmenu">
+			<?if($lenRazd === 0):/*О проекте*/?>
+					<div class="List wrap-right-menu">
+							<div class="">
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										 о компании
+								</a>
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										о проекте
+								</a>
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										путеводитель по POISK58
+								</a>
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										решение для бизнеса
+								</a>
+							</div>
+							<hr>
+							<div class="">
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										 лучшие блогеры
+								</a>
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										лучшие журналисты
+								</a>
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										наши партнеры
+								</a>
+								<a href="javascript:void(0);" class="btn btn-default btn-block">
+										наши спонсоры
+								</a>
+								<a href="javascript:void(0);" class="btn btn-danger btn-block">
+										помощь сайту
+								</a>
+							</div>
+							<hr>
+							<p class="rmenu-about-bot">
+								<span>@ 2014</span> <span>POISK58</span><br/>
+								<span>&laquo;Любимые места Пензы&raquo;</span>
+							</p>
+					</div>	
+			<?endif?>
+			
 			<?if($math[1] === "akcii" || $math[1] === "sobutiya" || $math[1] === "nowinki"):?>
 				<ul class="List">
-					 <li class="Selected">������</li>
-					 <li class="Label">������</li>   
-					 <li>������</li>
+					 <li class="Selected">Первый</li>
+					 <li class="Label">Второй</li>   
+					 <li>Третий</li>
 					 <li>
 						<a href="/about/">Submenu</a>
 						 <ul>
@@ -121,34 +164,34 @@
 			<?if($math[1] !== "akcii" && $math[1] !== "sobutiya" && $math[1] !== "nowinki"):?>
 				<div>
 						<div class="List wrap-right-menu">
-							<div class="mrg-bot20">
+							<div class="">
 								<a href="/catalog/<?=(empty($math[1])?"":$math[1]."/")?>
 										<?=(empty($math[2])?"":$math[2]."/")?>"
 										class="btn btn-default btn-block
 										<?if(empty($_GET['sort'])):?>active<?endif?>"
 										onclick="sortActiveReset(this);">
-										�����������
+										рекомендуем
 								</a>
 								<a href="/catalog/<?=(empty($math[1])?"":$math[1]."/")?>
 										<?=(empty($math[2])?"":$math[2]."/")?>?sort=created_date"
 										class="btn btn-default btn-block 
 										<?if($_GET['sort']==='created_date'):?>active<?endif?>"
 										onclick="sortActiveReset(this);">
-										�����
+										новые
 								</a>
 								<a href="/catalog/<?=(empty($math[1])?"":$math[1]."/")?>
 										<?=(empty($math[2])?"":$math[2]."/")?>?sort=show_counter"
 										class="btn btn-default btn-block
 										<?if($_GET['sort']==='show_counter'):?>active<?endif?>"
 										onclick="sortActiveReset(this);">
-										����������
+										популярные
 								</a>	
 								<a href="/catalog/<?=(empty($math[1])?"":$math[1]."/")?>
-										<?=(empty($math[2])?"":$math[2]."/")?>?sort=�����������"
+										<?=(empty($math[2])?"":$math[2]."/")?>?sort=вразработке"
 										class="btn btn-default btn-block
-										<?if($_GET['sort']==='�����������'):?>active<?endif?>"
+										<?if($_GET['sort']==='вразработке'):?>active<?endif?>"
 										onclick="sortActiveReset(this);">
-										������� �����
+										любимые места
 								</a>
 							</div>	
 							
@@ -173,6 +216,8 @@
 													"HIDE_NOT_AVAILABLE" => "N"
 											)
 									);?>
+									
+									
 							</div>
 						</div>	
 				</div>

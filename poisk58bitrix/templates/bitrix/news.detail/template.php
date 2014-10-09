@@ -4,13 +4,12 @@
 <?$this->EndViewTarget();?>
 <?if($_GET['key'] != 'fotoload'):?>
 		<?$APPLICATION->AddHeadString('
-				<script type="text/javascript" src="'.SITE_TEMPLATE_PATH.'/js/vk_like.js"></script>
-				<script type="text/javascript">
-					  VK.init({apiId: 4269851, onlyWidgets: true});
-					</script>', true);
+<script type="text/javascript" src="'.SITE_TEMPLATE_PATH.'/js/vk_like.js"></script>
+<script type="text/javascript" src="http://vk.com/js/api/share.js?90"
+ charset="windows-1251"></script>', true);
 		?>
 
-			<?/*Выборка свойств из инфоблока услуги*/
+			<?/*Р’С‹Р±РѕСЂРєР° СЃРІРѕР№СЃС‚РІ РёР· РёРЅС„РѕР±Р»РѕРєР° СѓСЃР»СѓРіРё*/
 			 if(CModule::IncludeModule("iblock"))
 			 {
 				$db_props = CIBlockElement::GetProperty(2, 7, "sort", "asc", array());
@@ -21,7 +20,7 @@
 			 }
 			?>
 		
-		<?/*Получаем элементы сети для кнопки Сеть*/
+		<?/*РџРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚С‹ СЃРµС‚Рё РґР»СЏ РєРЅРѕРїРєРё РЎРµС‚СЊ*/
 			$flagnet = !empty($arResult['PROPERTIES']['PROP_NETWORK']['VALUE']);
 			$strNetw = $arResult['PROPERTIES']['PROP_NETWORK']['VALUE'];
 			if($flagnet){
@@ -39,13 +38,36 @@
 				}
 			}
 		?>
+		
+		<?/*РџРѕРґСЃС‡РёС‚С‹РІР°РµРј РєРѕР»РёС‡РµСЃРІС‚Рѕ СЂРІР·РґРµР»РѕРІ РґР»СЏ С„РёР»СЊС‚СЂР°*/
+			$cntFilter = count($arResult["SECTION"]["PATH"]);
+		?>
+		
+		<?/*Р’С‹СЏСЃРЅСЏРµРј Рє РєР°РєРёРј РіСЂСѓРїРїР°Рј РїСЂРёРІСЏР·Р°РЅ СЌР»РµРјРµРЅС‚*/
+			$db_elem = CIBlockElement::GetElementGroups($arResult["ID"]);
+			while($arDbElem = $db_elem->Fetch()){
+				$arElem[] = $arDbElem["NAME"];
+				
+				/*РЎРѕР·РґР°РµРј РїСѓС‚СЊ Рє СЂР°Р·РґРµР»Сѓ*/
+				$db_url = CIBlockSection::GetByID($arDbElem["ID"]);
+				$db_url->SetUrlTemplates();
+				$arDBElemUrl = $db_url->GetNext();
+				$arElemUrl[] = $arDBElemUrl['LIST_PAGE_URL'].$arDBElemUrl['SECTION_PAGE_URL'];
+			}
+			
+			$lenElem = count($arElem);
+		?>
+
+		<script type="text/javascript">
+					  VK.init({apiId: 4269851, onlyWidgets: true});
+		</script>
 
 		<div class="row mrg-bot15 vs991 hd335">
 
 			<div class="col-sm-3 col-xs-3">
 				<p class="favor_more-sm">
 					<i class="glyph-more-sm glyphicon glyphicon-plus"></i>
-					<span><nobr>в любимые места</nobr></span>
+					<span><nobr>РІ Р»СЋР±РёРјС‹Рµ РјРµСЃС‚Р°</nobr></span>
 				</p>
 			</div>
 			
@@ -54,12 +76,22 @@
 					<div id="vk_like991"></div>
 					
 						<script type="text/javascript">
-							VK.Widgets.Like991("vk_like991", {type: "button", height: 24});
+							VK.Widgets.Like991("vk_like991", {type: "button",
+																								height: 24,
+																								pageTitle: "<?=$arResult["NAME"];?>",
+																								pageDescription: "<?=$arResult["DETAIL_TEXT"];?>",
+																								pageUrl: "<?='http://'.$_SERVER['HTTP_HOST'].
+																								'/'.$arResult['DETAIL_PAGE_URL']?>",
+																								pageImage: "<?='http://'.$_SERVER['HTTP_HOST'].
+																								$arResult["DETAIL_PICTURE"]["SRC"]?>",
+																								Image: "<?='http://'.$_SERVER['HTTP_HOST'].
+																								$arResult["DETAIL_PICTURE"]["SRC"]?>"
+																								});
+		
 						</script>
-			
 				</div>
 			</div>
-			
+		
 			<div class="col-sm-12 col-xs-12">
 				<div class="name_mesto-sm">
 					<h4><?=$arResult["NAME"];?></h4>
@@ -76,9 +108,9 @@
 
 		<div class="row vs335">
 			<div class="col-md-3">
-				<a class="mrg-bot15 btn btn-danger btn-xs" href="javascript:void(0);">Фильтр</a>
-				<a class="mrg-bot15 btn btn-danger btn-xs" href="javascript:void(0);">Фильтр</a>
-				<a class="mrg-bot15 btn btn-danger btn-xs" href="javascript:void(0);">Фильтр</a>
+				<a class="mrg-bot15 btn btn-danger btn-xs" href="javascript:void(0);">Р¤РёР»СЊС‚СЂ</a>
+				<a class="mrg-bot15 btn btn-danger btn-xs" href="javascript:void(0);">Р¤РёР»СЊС‚СЂ</a>
+				<a class="mrg-bot15 btn btn-danger btn-xs" href="javascript:void(0);">Р¤РёР»СЊС‚СЂ</a>
 				<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
 					<p class="linetext335">
 						<?=$arResult["NAME"]?>
@@ -109,24 +141,27 @@
 							
 							<div class="descript-wrap">
 								<p class="description">
-									<span><nobr>в любимые места</nobr></span>
+									<span><nobr>РІ Р»СЋР±РёРјС‹Рµ РјРµСЃС‚Р°</nobr></span>
 								</p>
 								<i class="glyph-btn glyphicon glyphicon-plus"></i>
-								<span class="tooltip-mesta"><nobr>в любимые места</nobr></span>
+								<span class="tooltip-mesta"><nobr>РІ Р»СЋР±РёРјС‹Рµ РјРµСЃС‚Р°</nobr></span>
 							</div>	
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-md-9">
 					<div class="panoram-wrap panoram-hd-vs">
 						<div class="panoram">
 							<div class="filtr-panor">
-								<a class="btn btn-danger btn-xs" href="javascript:void(0);">Фильтр</a>
-								<a class="btn btn-danger btn-xs" href="javascript:void(0);">Фильтр</a>
-								<a class="btn btn-danger btn-xs" href="javascript:void(0);">Фильтр</a>
+								<?for($i = 0; $i < $lenElem; $i++):?>
+									<a class="btn btn-danger btn-xs" 
+											href="<?=$arElemUrl[$i]?>">
+										<?=$arElem[$i]?>
+									</a>
+								<?endfor?>	
 							</div>
-							 <?/*картинка панорамы*/
+							 <?/*РєР°СЂС‚РёРЅРєР° РїР°РЅРѕСЂР°РјС‹*/
 								$arFile = CFile::GetFileArray($arResult['PROPERTIES']['PLACE_PANORAMA']['VALUE']);
 							 ?>
 							 <a class="infob-Img" href="javascript:void(0);" style="background: url(<?=$arFile[SRC]?>) 0 0;  -o-background-size: cover; -moz-background-size: cover; -webkit-background-size:cover; background-size:cover;">
@@ -134,20 +169,20 @@
 							</a>	
 							<div class="bookmark-btn">
 								<a onclick="displCont(this)" class="<?=($_GET['key'] == 'inter' ? 'btn btn-default hd569':'btn btn-primary hd569')?>" 
-									data="descr" href="javascript:void(0);">Описание</a>
+									data="descr" href="javascript:void(0);">РћРїРёСЃР°РЅРёРµ</a>
 								<a onclick="displCont(this)" class="<?=($_GET['key'] == 'inter' ? 'btn btn-primary hd569':'btn btn-default hd569')?>"
-									data="inter" href="javascript:void(0);">Интерьер</a>
-								<a onclick="displCont(this)" class="btn btn-default hd569" data="map" href="javascript:void(0);">Карта</a>
-								<a onclick="displCont(this)" class="btn btn-default hd569" data="menu"  href="javascript:void(0);">Меню</a>
+									data="inter" href="javascript:void(0);">РРЅС‚РµСЂСЊРµСЂ</a>
+								<a onclick="displCont(this)" class="btn btn-default hd569" data="map" href="javascript:void(0);">РљР°СЂС‚Р°</a>
+								<a onclick="displCont(this)" class="btn btn-default hd569" data="menu"  href="javascript:void(0);">РњРµРЅСЋ</a>
 								
 								<div class="vs569">	
 									<div class="btn-group">
-										  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Описание<span class="caret"></span></button>
+										  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">РћРїРёСЃР°РЅРёРµ<span class="caret"></span></button>
 										  <ul class="dropdown-menu" role="menu">
-												<li class="<?=($_GET['key'] == 'inter' ? '':'bookmark-active')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="descr">Описание</a></li>
-												<li class="<?=($_GET['key'] == 'inter' ? 'bookmark-active':'')?>"><a onclick="displCont(this)" href="javascript:void(0)" data="inter">Интерьер</a></li>
-												<li><a onclick="displCont(this)" href="javascript:void(0)" data="map">Карта</a></li>
-												<li><a onclick="displCont(this)" href="javascript:void(0)" data="menu">Меню</a></li>
+												<li class="<?=($_GET['key'] == 'inter' ? '':'bookmark-active')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="descr">РћРїРёСЃР°РЅРёРµ</a></li>
+												<li class="<?=($_GET['key'] == 'inter' ? 'bookmark-active':'')?>"><a onclick="displCont(this)" href="javascript:void(0)" data="inter">РРЅС‚РµСЂСЊРµСЂ</a></li>
+												<li><a onclick="displCont(this)" href="javascript:void(0)" data="map">РљР°СЂС‚Р°</a></li>
+												<li><a onclick="displCont(this)" href="javascript:void(0)" data="menu">РњРµРЅСЋ</a></li>
 										  </ul>
 									</div>
 								</div>	
@@ -157,7 +192,7 @@
 								<div class="bookmark-btn-right">
 									<a class="btn btn-primary" href="javascript:void(0);" data="network"
 											onclick="displCont(this)">
-										Сеть
+										РЎРµС‚СЊ
 										<span class="col_network">
 											<?=$cntNetw?>
 										</span>
@@ -192,15 +227,15 @@
 						
 			<div class="col-md-3 ">
 				<div class="btn-group ">
-					  <button type="button" class="btn btn-primary dropdown-toggle 335" data-toggle="dropdown">Описание<span class="caret"></span></button>
+					  <button type="button" class="btn btn-primary dropdown-toggle 335" data-toggle="dropdown">РћРїРёСЃР°РЅРёРµ<span class="caret"></span></button>
 					  <ul class="dropdown-menu" role="menu">
-						<li  class="<?=($_GET['key'] == 'inter' ? '':'bookmark-active')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="descr">Описание</a></li>
-						<li class="<?=($_GET['key'] == 'inter' ? 'bookmark-active':'')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="inter">Интерьер</a></li>
-						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="map">Карта</a></li>
-						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="menu">Меню</a></li>
+						<li  class="<?=($_GET['key'] == 'inter' ? '':'bookmark-active')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="descr">РћРїРёСЃР°РЅРёРµ</a></li>
+						<li class="<?=($_GET['key'] == 'inter' ? 'bookmark-active':'')?>"><a  onclick="displCont(this)" href="javascript:void(0)" data="inter">РРЅС‚РµСЂСЊРµСЂ</a></li>
+						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="map">РљР°СЂС‚Р°</a></li>
+						<li><a  onclick="displCont(this)" href="javascript:void(0)" data="menu">РњРµРЅСЋ</a></li>
 						<?if($flagnet):?>
 							<li><a  onclick="displCont(this)" href="javascript:void(0)" data="network">
-										Сеть <?=$cntNetw?>
+										РЎРµС‚СЊ <?=$cntNetw?>
 									</a>
 							</li>
 						<?endif?>	
@@ -216,15 +251,15 @@
 				<div class="col-md-3 clearfix hd991">
 					<div class="vote-btn col-sm-6 col-xs-6">
 						<a class="btn btn-primary btn-block" href="javascript:void(0);">7.4<sup>/45<sup></a>
-						<a class="btn btn-default btn-block" href="javascript:void(0);">Параметр оценки</a>
-						<a class="btn btn-default btn-block" href="javascript:void(0);">Параметр оценки</a>
-						<a class="btn btn-default btn-block" href="javascript:void(0);">Параметр оценки</a>
-						<a class="btn btn-primary btn-block" href="javascript:void(0);">Оценить место</a>
+						<a class="btn btn-default btn-block" href="javascript:void(0);">РџР°СЂР°РјРµС‚СЂ РѕС†РµРЅРєРё</a>
+						<a class="btn btn-default btn-block" href="javascript:void(0);">РџР°СЂР°РјРµС‚СЂ РѕС†РµРЅРєРё</a>
+						<a class="btn btn-default btn-block" href="javascript:void(0);">РџР°СЂР°РјРµС‚СЂ РѕС†РµРЅРєРё</a>
+						<a class="btn btn-primary btn-block" href="javascript:void(0);">РћС†РµРЅРёС‚СЊ РјРµСЃС‚Рѕ</a>
 					</div>
 				
 						
 					<div class="vk_like-wrap col-sm-6 col-xs-6">
-						<p>рекомендовать Вконтакте</p>
+						<p>СЂРµРєРѕРјРµРЅРґРѕРІР°С‚СЊ Р’РєРѕРЅС‚Р°РєС‚Рµ</p>
 						<div id="vk_like"></div>
 			
 							<script type="text/javascript">
@@ -241,7 +276,7 @@
 							  <h4 class="panel-title">
 									<?=$arResult["DETAIL_TEXT"];?>
 								  <a style="display:none;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-									Подробнее
+									РџРѕРґСЂРѕР±РЅРµРµ
 								  </a>
 								</h4>
 							</div>
@@ -384,14 +419,14 @@
 				<div class="row mrg-bot15 hd991">
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
 						<div class="btn-group">
-						  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Лента новостей <span class="caret"></span></button>
+						  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Р›РµРЅС‚Р° РЅРѕРІРѕСЃС‚РµР№ <span class="caret"></span></button>
 						  <ul class="dropdown-menu" role="menu">
 								<li><a data-action="sobutiya" onclick="showAction(this);"
-											href="javascript: void(0);">События</a></li>
+											href="javascript: void(0);">РЎРѕР±С‹С‚РёСЏ</a></li>
 								<li><a data-action="akcii" onclick="showAction(this);"
-											href="javascript: void(0);">Акции</a></li>
+											href="javascript: void(0);">РђРєС†РёРё</a></li>
 								<li><a data-action="nowinki" onclick="showAction(this);" 
-											href="javascript: void(0);">Новинки</a></li>
+											href="javascript: void(0);">РќРѕРІРёРЅРєРё</a></li>
 						  </ul>
 						</div>
 					</div>	
@@ -399,7 +434,7 @@
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6 open">
 						<button type="button" class="btn btn-default dropdown-toggle" 
 							data-action="sobutiya" onclick="showAction(this);" data-toggle="dropdown">
-							События
+							РЎРѕР±С‹С‚РёСЏ
 						</button>
 						 
 					</div>	
@@ -407,7 +442,7 @@
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
 						<button type="button" class="btn btn-default dropdown-toggle"
 							data-action="akcii" onclick="showAction(this);" data-toggle="dropdown">
-							Акции
+							РђРєС†РёРё
 						</button>
 						 
 					</div>	
@@ -415,7 +450,7 @@
 					<div class="col-md-3 col-sm-4 col-xs-4 col-xss-6">
 						<button type="button" class="btn btn-default dropdown-toggle" 
 							data-action="nowinki" onclick="showAction(this);" data-toggle="dropdown">
-							Новинки
+							РќРѕРІРёРЅРєРё
 						</button>
 						 
 					</div>	
@@ -425,7 +460,7 @@
 				
 				<div class="row vs335">
 					<div class="col-sm-12">
-						<button type="button" class="btn btn-primary btn-block" data-toggle="dropdown">Оценить место</button>
+						<button type="button" class="btn btn-primary btn-block" data-toggle="dropdown">РћС†РµРЅРёС‚СЊ РјРµСЃС‚Рѕ</button>
 					</div>
 					<div class="col-sm-12">
 						<div class="vk_like-wrap335">
@@ -445,14 +480,14 @@
 					<div class="col-sm-12">
 						<div class="btn-group mrg-bot15">
 							  <button type="button" class="btn btn-danger btn-block dropdown-toggle" 
-									data-toggle="dropdown">Лента новостей <span class="caret"></span></button>
+									data-toggle="dropdown">Р›РµРЅС‚Р° РЅРѕРІРѕСЃС‚РµР№ <span class="caret"></span></button>
 							  <ul class="dropdown-menu" role="menu">
 									<li><a data-action="sobutiya" onclick="showAction(this);"
-											href="javascript: void(0);">События</a></li>
+											href="javascript: void(0);">РЎРѕР±С‹С‚РёСЏ</a></li>
 									<li><a data-action="akcii" onclick="showAction(this);"
-												href="javascript: void(0);">Акции</a></li>
+												href="javascript: void(0);">РђРєС†РёРё</a></li>
 									<li><a data-action="nowinki" onclick="showAction(this);" 
-												href="javascript: void(0);">Новинки</a></li>
+												href="javascript: void(0);">РќРѕРІРёРЅРєРё</a></li>
 							  </ul>
 							</div>
 					</div>
@@ -498,9 +533,9 @@
 									"CACHE_GROUPS" => "Y",
 									"DISPLAY_TOP_PAGER" => "Y",
 									"DISPLAY_BOTTOM_PAGER" => "Y",
-									"PAGER_TITLE" => "Новости",
+									"PAGER_TITLE" => "РђРєС†РёРё",
 									"PAGER_SHOW_ALWAYS" => "Y",
-									"PAGER_TEMPLATE" => "",
+									"PAGER_TEMPLATE" => "akcii",
 									"PAGER_DESC_NUMBERING" => "Y",
 									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 									"PAGER_SHOW_ALL" => "Y",
@@ -519,8 +554,8 @@
 									"DISPLAY_PICTURE" => "Y",
 									"DISPLAY_PREVIEW_TEXT" => "Y",
 									"AJAX_MODE" => "Y",
-									"IBLOCK_TYPE" => "akcii",
-									"IBLOCK_ID" => "6",
+									"IBLOCK_TYPE" => "sobutiya",
+									"IBLOCK_ID" => "7",
 									"PARENT_ELEMENT_ID" => $arResult["ID"],
 									"NEWS_COUNT" => "20",
 									"SORT_BY1" => "ACTIVE_FROM",
@@ -551,9 +586,9 @@
 									"CACHE_GROUPS" => "Y",
 									"DISPLAY_TOP_PAGER" => "Y",
 									"DISPLAY_BOTTOM_PAGER" => "Y",
-									"PAGER_TITLE" => "Новости",
+									"PAGER_TITLE" => "РЎРѕР±С‹С‚РёСЏ",
 									"PAGER_SHOW_ALWAYS" => "Y",
-									"PAGER_TEMPLATE" => "",
+									"PAGER_TEMPLATE" => "sobutiya",
 									"PAGER_DESC_NUMBERING" => "Y",
 									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 									"PAGER_SHOW_ALL" => "Y",
@@ -566,14 +601,14 @@
 				</div>
 				
 				<div id="novinki">
-					<?$APPLICATION->IncludeComponent("andatr:news.list","novinki",Array(
+					<?$APPLICATION->IncludeComponent("andatr:news.list","nowinki",Array(
 									"DISPLAY_DATE" => "Y",
 									"DISPLAY_NAME" => "Y",
 									"DISPLAY_PICTURE" => "Y",
 									"DISPLAY_PREVIEW_TEXT" => "Y",
 									"AJAX_MODE" => "Y",
-									"IBLOCK_TYPE" => "akcii",
-									"IBLOCK_ID" => "6",
+									"IBLOCK_TYPE" => "nowinki",
+									"IBLOCK_ID" => "8",
 									"PARENT_ELEMENT_ID" => $arResult["ID"],
 									"NEWS_COUNT" => "20",
 									"SORT_BY1" => "ACTIVE_FROM",
@@ -604,9 +639,9 @@
 									"CACHE_GROUPS" => "Y",
 									"DISPLAY_TOP_PAGER" => "Y",
 									"DISPLAY_BOTTOM_PAGER" => "Y",
-									"PAGER_TITLE" => "Новости",
+									"PAGER_TITLE" => "РќРѕРІРёРЅРєРё",
 									"PAGER_SHOW_ALWAYS" => "Y",
-									"PAGER_TEMPLATE" => "",
+									"PAGER_TEMPLATE" => "nowinki",
 									"PAGER_DESC_NUMBERING" => "Y",
 									"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 									"PAGER_SHOW_ALL" => "Y",
@@ -683,7 +718,7 @@
 									$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle.335').html('Описание <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('РћРїРёСЃР°РЅРёРµ <span class="caret"></span>');
 								}
 								
 							}
@@ -727,7 +762,7 @@
 									$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle.335').html('Интерьер <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('РРЅС‚РµСЂСЊРµСЂ <span class="caret"></span>');
 								}
 							}
 							break;
@@ -769,7 +804,7 @@
 									$($('a[data=menu]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle.335').html('Карта <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('РљР°СЂС‚Р° <span class="caret"></span>');
 								}
 								
 							}
@@ -813,7 +848,7 @@
 									$($('a[data=descr]').parent()[2]).removeClass('bookmark-active');
 									$($('a[data=network]').parent()[2]).removeClass('bookmark-active');
 									
-									$('.dropdown-toggle.335').html('Меню <span class="caret"></span>');
+									$('.dropdown-toggle.335').html('РњРµРЅСЋ <span class="caret"></span>');
 								}
 								
 							}
@@ -856,14 +891,14 @@
 										$($('a[data=inter]').parent()[2]).removeClass('bookmark-active');
 										$($('a[data=descr]').parent()[2]).removeClass('bookmark-active');
 										
-										$('.dropdown-toggle.335').html('Сеть <?=$cntNetw?> <span class="caret"></span>');
+										$('.dropdown-toggle.335').html('РЎРµС‚СЊ <?=$cntNetw?> <span class="caret"></span>');
 									}
 									
 								}
 							break;
 							
 						default:
-							console.log('атрибут не найден');
+							console.log('Р°С‚СЂРёР±СѓС‚ РЅРµ РЅР°Р№РґРµРЅ');
 							break;
 					}
 				}
@@ -900,7 +935,7 @@
 							}
 							break;
 						default:
-							console.log('для ключа data вариантов нет');
+							console.log('РґР»СЏ РєР»СЋС‡Р° data РІР°СЂРёР°РЅС‚РѕРІ РЅРµС‚');
 							break;
 					}
 				}
